@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <div class="container">
+      <form autocomplite="none" novalidate>
+        <label for="mail">
+          <span>E-Mail:</span>
+          <input
+            type="email"
+            id="mail"
+            name="E-mail"
+            required
+            minlength="8"
+            placeholder="example@gmail.com"
+          />
+          <span class="error"></span>
+        </label>
+        <label for="country">
+          <span>Country:</span>
+          <input
+            type="text"
+            id="country"
+            name="Country"
+            required
+            minlength="2"
+            placeholder="e.g. Germany"
+          />
+          <span class="error"></span>
+        </label>
+        <label for="zip-code">
+          <span>Zip-Code:</span>
+          <input
+            type="number"
+            id="zip-code"
+            name="Zip-code"
+            required
+            min="100000"
+            max="999999"
+            placeholder="e.g. 10247"
+          />
+          <span class="error"></span>
+        </label>
+        <label for="password">
+          <span>Password:</span>
+          <input
+            type="text"
+            id="password"
+            name="Password"
+            required
+            minlength="8"
+            placeholder="e.g. 1234qwer"
+          />
+          <span class="error"></span>
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
