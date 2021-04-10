@@ -49,15 +49,27 @@
         <label for="password">
           <span>Password:</span>
           <input
-            type="text"
+            type="password"
             id="password"
             name="Password"
             required
             minlength="8"
-            placeholder="e.g. 1234qwer"
+            placeholder="Password"
+            autocomplete="off"
           />
           <span class="error"></span>
-        </label>
+          <label for="password2">
+            <span>Password:</span>
+            <input
+              type="password"
+              id="password2"
+              name="Password2"
+              required
+              placeholder="Password"
+              autocomplete="off"
+              onkeyup="confirmPassword(this)"
+            />
+            <span class="error"></span>
         <button type="submit">Submit</button>
       </form>
     </div>
