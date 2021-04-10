@@ -1,6 +1,6 @@
 const inputs = document.querySelectorAll('input');
 const errorMsg = document.querySelectorAll('span.error');
-const submitBtn = document.querySelector('button');
+const form = document.getElementsByTagName('form')[0];
 
 inputs.forEach((input) =>
   input.addEventListener('input', function (event) {
@@ -18,24 +18,20 @@ function validateInput(event, input) {
   }
 }
 
-submitBtn.addEventListener('submit', function (event) {
-  inputs.forEach((input) => {
-    if (!input.validity.valid) {
-      console.log('yay');
-      event.preventDefault();
-    }
-  });
-});
-
-/*
-  console.log(input.validity.valid);
-  event.preventDefault();
-
-  if (!input.validity.valid) {
-    alert('ops');
-    e.preventDefault();
+form.addEventListener('submit', function (event) {
+  if (
+    !document.getElementById('mail').validity.valid ||
+    !document.getElementById('country').validity.valid ||
+    !document.getElementById('zip-code').validity.valid ||
+    !document.getElementById('password').validity.valid ||
+    !confirmPassword()
+  ) {
+    alert('Please fill the form');
+    event.preventDefault();
+  } else {
+    alert('You did it');
   }
-}); */
+});
 
 function showError(input, index) {
   console.log(input.id);
@@ -57,12 +53,15 @@ function showError(input, index) {
 function confirmPassword() {
   const input = document.getElementById('password2');
   let index = Array.from(inputs).indexOf(input);
-  let valid = false;
 
-  if (input.value != document.getElementById('password').value) {
+  if (
+    input.value != document.getElementById('password').value ||
+    input.value == ''
+  ) {
     errorMsg[index].textContent = `Password is not the same`;
     errorMsg[index].className = 'error active';
-    return (valid = false);
+    return false;
+  } else {
+    return true;
   }
-  return (valid = true);
 }
